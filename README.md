@@ -5,14 +5,45 @@
 ![host](https://img.shields.io/badge/ZCode-Desktop%20plugin-2ea44f)
 ![i18n](https://img.shields.io/badge/rules-EN-2ea44f)
 
+<p align="center">
+  <img src="docs/slop-vs-clean.svg" width="880" alt="Слева типовой AI-слоп: фиолетовый градиент, эмодзи, одинаковые карточки. Справа результат с плагином: вёрстка от контента, один акцент, конкретный текст">
+</p>
+
 Плагин для ZCode, который отучает любые модели от «AI-слопа» — фирменных признаков
 нейросетевого кода и дизайна. Нейросети рисуют один и тот же лендинг: фиолетовый градиент,
 шрифт Inter, три одинаковые карточки, 🚀 в кнопке — и пишут код с комментами-пересказом
 и `try/catch`, который не может сработать. Этот плагин ставит на всё это запрет по умолчанию.
 
-Работает через два механизма: SessionStart-хук вливает компактные правила в контекст каждой
-сессии, а скилл `anti-ai-slop` разворачивает полный свод на задачах кода и дизайна. Команда
-`/anti-slop:check` прогоняет файлы или недавние изменения по правилам и исправляет найденное.
+## Как это устроено
+
+<p align="center">
+  <img src="docs/how-it-works.svg" width="840" alt="Схема: правила доставляются хуком в каждую сессию, скиллом на задачах и командой проверки">
+</p>
+
+Три канала доставки правил, перекрывающие друг друга:
+
+- **SessionStart-хук** — при старте каждой сессии вливает компактную версию правил в контекст.
+  Работает для любой модели в ZCode, до первого сообщения, без ручного вызова.
+- **Скилл `anti-ai-slop`** — поднимается на задачах кода, дизайна, доков и копирайта и разворачивает
+  полный свод: 40+ конкретных запретов с заменами вместо абстрактного «пиши красиво».
+- **Команда `/anti-slop:check`** — точечный аудит заданных файлов или недавних изменений:
+  находит слоп, показывает где и предлагает исправления.
+
+### На чём основаны правила
+
+Каждый пункт свода выведен из публичных разборов того, по чему ИИ-работу узнают на практике:
+
+- **Дизайн** — анализ повторяющихся паттернов AI-генераторов интерфейсов: фиолетовые градиенты,
+  Inter, равные карточные сетки, шаблонный hero+pricing ([3 UI Slop Patterns](https://dev.to/kenimo49/3-ui-slop-patterns-in-ai-ui-generators-purple-gradients-inter-fonts-uniform-cards-11l6),
+  [Why Your AI-Generated UI Looks Like Everyone Else's](https://medium.com/@Rythmuxdesigner/why-your-ai-generated-ui-looks-like-everyone-elses-and-how-to-break-the-pattern-7a3bf6b070be)).
+- **Код** — признаки сгенерированного кода в ревью: пересказ очевидного комментами, защитный
+  бойлерплейд вокруг невозможных ошибок, игнорирование стиля проекта ([Pangram: AI Code Detector](https://www.pangram.com/blog/ai-code-detector),
+  [How to Check if Code Is AI Generated](https://aitools.sh/blog/how-to-check-if-code-is-ai-generated)).
+- **Словарь** — списки слов-маркеров LLM-текста, собранные по частотности ([Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing),
+  [Most Common ChatGPT Words to Avoid](https://walterwrites.ai/most-common-chatgpt-words-to-avoid)).
+
+Свод проверен на живой задаче — лендинг, собранный с активным плагином, вышел без градиентов,
+Inter и эмодзи, с вёрсткой от контента.
 
 > **Явный запрос снимает запрет**: «сделай фиолетовый градиент» — будет градиент, без нытья.
 > «Сделай красиво» и «современно» — ничто не снимают.
@@ -99,8 +130,9 @@ anti-ai-slop/commands/check.md                  — команда /anti-slop:ch
 
 A ZCode plugin that stops AI models from producing tell-tale "AI slop": purple/neon gradients,
 the Inter font, emoji UI, glassmorphism, uniform card grids, AI vocabulary (*robust*, *seamless*,
-*delve*, *leverage*…), over-commenting and defensive boilerplate. A SessionStart hook injects
-compact rules into every session; the `anti-ai-slop` skill carries the full rulebook;
-`/anti-slop:check` audits files and fixes findings. Each ban is lifted only when the user
-explicitly asks for that exact pattern. Install: Plugin Marketplace → Add → paste this
+*delve*, *leverage*…), over-commenting and defensive boilerplate. The ruleset is grounded in
+public analyses of AI-detectable patterns (see the Russian section for sources). A SessionStart
+hook injects compact rules into every session; the `anti-ai-slop` skill carries the full
+rulebook; `/anti-slop:check` audits files and fixes findings. Each ban is lifted only when the
+user explicitly asks for that exact pattern. Install: Plugin Marketplace → Add → paste this
 repository URL.

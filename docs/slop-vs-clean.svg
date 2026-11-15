@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 430" font-family="-apple-system, 'Segoe UI', Roboto, Arial, sans-serif">
+  <defs>
+    <linearGradient id="gradPurple" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+    <linearGradient id="gradBtn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#EC4899"/>
+      <stop offset="1" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="920" height="430" fill="#ffffff"/>
+
+  <g>
+    <rect x="30" y="16" width="190" height="28" rx="14" fill="#cf222e" fill-opacity="0.10"/>
+    <text x="125" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#cf222e">AI-слоп · до плагина</text>
+  </g>
+  <g>
+    <rect x="700" y="16" width="190" height="28" rx="14" fill="#1a7f37" fill-opacity="0.12"/>
+    <text x="795" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#1a7f37">после плагина</text>
+  </g>
+
+  <!-- left: slop landing -->
+  <g>
+    <rect x="30" y="60" width="420" height="340" rx="14" fill="url(#gradPurple)"/>
+    <text x="240" y="108" text-anchor="middle" font-size="21" font-weight="700" fill="#ffffff">Streamline Your Workflow</text>
+    <text x="240" y="130" text-anchor="middle" font-size="12" fill="#ffffff" fill-opacity="0.75">Unlock your true potential. Built for the modern web.</text>
+
+    <g fill="#ffffff" fill-opacity="0.16">
+      <rect x="50" y="152" width="120" height="112" rx="10"/>
+      <rect x="180" y="152" width="120" height="112" rx="10"/>
+      <rect x="310" y="152" width="120" height="112" rx="10"/>
+    </g>
+    <g fill="#ffffff" fill-opacity="0.22">
+      <circle cx="110" cy="182" r="15"/>
+      <circle cx="240" cy="182" r="15"/>
+      <circle cx="370" cy="182" r="15"/>
+    </g>
+    <text x="110" y="188" text-anchor="middle" font-size="15">🚀</text>
+    <text x="240" y="188" text-anchor="middle" font-size="15">✨</text>
+    <text x="370" y="188" text-anchor="middle" font-size="15">💡</text>
+    <g fill="#ffffff" fill-opacity="0.45">
+      <rect x="70" y="210" width="80" height="6" rx="3"/>
+      <rect x="200" y="210" width="80" height="6" rx="3"/>
+      <rect x="330" y="210" width="80" height="6" rx="3"/>
+      <rect x="70" y="222" width="60" height="6" rx="3"/>
+      <rect x="200" y="222" width="60" height="6" rx="3"/>
+      <rect x="330" y="222" width="60" height="6" rx="3"/>
+    </g>
+
+    <rect x="140" y="300" width="200" height="38" rx="19" fill="url(#gradBtn)"/>
+    <text x="240" y="324" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Get Started 🚀</text>
+
+    <text x="240" y="372" text-anchor="middle" font-size="11" fill="#ffffff" fill-opacity="0.65">gradient + Inter + одинаковые карточки + эмодзи</text>
+  </g>
+
+  <!-- right: clean coffee shop -->
+  <g>
+    <rect x="470" y="60" width="420" height="340" rx="14" fill="#ffffff" stroke="#d0d7de"/>
+    <text x="494" y="102" font-size="19" font-weight="700" fill="#1f2328">Кофейня на углу</text>
+    <text x="494" y="124" font-size="12" fill="#59636e">Обжариваем зерно малыми партиями и варим при вас.</text>
+
+    <g font-size="13" fill="#1f2328">
+      <text x="494" y="166">Фильтр</text>
+      <text x="640" y="166" fill="#59636e">180 ₽</text>
+      <text x="494" y="192">Капучино на овсяном</text>
+      <text x="640" y="192" fill="#59636e">240 ₽</text>
+      <text x="494" y="218">Эспрессо-тоник</text>
+      <text x="640" y="218" fill="#59636e">220 ₽</text>
+    </g>
+    <g stroke="#d8dee4" stroke-width="1">
+      <line x1="494" y1="173" x2="700" y2="173"/>
+      <line x1="494" y1="199" x2="700" y2="199"/>
+    </g>
+
+    <rect x="730" y="146" width="140" height="164" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+    <g stroke="#8a5a2b" stroke-width="2" fill="#8a5a2b">
+      <path d="M778 210 h34 v20 a17 17 0 0 1 -34 0 z" fill="none"/>
+      <path d="M812 214 h8 a8 8 0 0 1 0 16 h-8" fill="none"/>
+      <line x1="785" y1="192" x2="785" y2="200"/>
+      <line x1="795" y1="188" x2="795" y2="200"/>
+    </g>
+    <text x="800" y="262" text-anchor="middle" font-size="10" fill="#59636e">свежая обжарка, чт–вс</text>
+
+    <rect x="494" y="330" width="150" height="34" rx="8" fill="#1f2328"/>
+    <text x="569" y="352" text-anchor="middle" font-size="12" fill="#ffffff">Меню и адрес</text>
+
+    <text x="680" y="372" text-anchor="middle" font-size="11" fill="#59636e">акцент под тему, плоские заливки, конкретный текст</text>
+  </g>
+</svg>
