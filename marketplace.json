@@ -1,0 +1,17 @@
+{
+  "name": "anti-ai-slop",
+  "plugins": [
+    {
+      "name": "anti-ai-slop",
+      "source": "./anti-ai-slop",
+      "version": "0.1.0",
+      "description": "Keeps AI output free of tell-tale slop (neon gradients, Inter, emoji UI, AI vocabulary, over-commenting) unless explicitly requested.",
+      "displayName": "Anti AI Slop",
+      "displayName_i18n": { "ru-RU": "Anti AI Slop" },
+      "description_i18n": {
+        "ru-RU": "Отучает модели от «AI-слопа»: неоновые градиенты, Inter, эмодзи в интерфейсе, ИИ-словарь, лишние комментарии и защитный код — только по явному запросу."
+      },
+      "category": "developer-tools"
+    }
+  ]
+}
