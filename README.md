@@ -1,6 +1,6 @@
 # Anti AI Slop
 
-![version](https://img.shields.io/badge/version-0.1.0-2ea44f)
+![version](https://img.shields.io/badge/version-0.2.0-2ea44f)
 ![license](https://img.shields.io/badge/license-MIT-2ea44f)
 ![host](https://img.shields.io/badge/ZCode-Desktop%20plugin-2ea44f)
 ![i18n](https://img.shields.io/badge/rules-EN-2ea44f)
@@ -41,6 +41,15 @@
   [How to Check if Code Is AI Generated](https://aitools.sh/blog/how-to-check-if-code-is-ai-generated)).
 - **Словарь** — списки слов-маркеров LLM-текста, собранные по частотности ([Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing),
   [Most Common ChatGPT Words to Avoid](https://walterwrites.ai/most-common-chatgpt-words-to-avoid)).
+- **Дизайн-фингерпринт 2025–26** — дефолтный Tailwind `blue-500`/`indigo-600` и нетронутый
+  shadcn/ui как главный маркер vibe-coded сайтов ([Why designers should care about Tailwind and ShadCN](https://annaarteeva.medium.com/why-designers-should-care-about-tailwind-and-shadcn-especially-in-the-ai-era-55b744c42603),
+  [Design Tips for your Vibe Coded Project](https://blog.differ.design)).
+- **Структура текста** — устойчивые маркеры переехали из слов в конструкцию: принудительное
+  «правило трёх», связки «not X, but Y», сиркофания, гладкий ритм без фрагментов. Из недавних
+  разборов (The Economist «How to spot AI writing»; Guardian про em-dash): одиночный маркер —
+  не доказательство, оценивать надо структуру целиком.
+- **Код-2026** — generic verb-sludge имена (`handleClick`, `processData`), мусорные utils-модули,
+  мёртвые импорты, тавтологические тесты ([How to Detect AI Generated Code in 2026](https://www.zylocode.com/blog/how-to-detect-ai-generated-code-2026)).
 
 Свод проверен на живой задаче — лендинг, собранный с активным плагином, вышел без градиентов,
 Inter и эмодзи, с вёрсткой от контента.
@@ -63,6 +72,10 @@ Inter и эмодзи, с вёрсткой от контента.
 | одинаковые карточные сетки, `rounded-2xl` на всём | живая сетка: акценты, списки, таблицы, асимметрия |
 | шаблонный лендинг hero + 3 карточки + pricing | вёрстка от контента и предмета |
 | копирайт «Streamline your workflow», «Supercharge…» | конкретика: что продукт реально делает |
+| дефолтный Tailwind `blue-500`/`indigo-600` как основной, нетронутый shadcn | палитра под предмет или токены проекта |
+| градиентные «шары» и блобы в фоне, шумовые оверлеи | чистый фон или настоящая графика |
+| фейковые отзывы со стоковыми именами и кружками-аватарами | реальные цитаты или никакие |
+| `hover:scale-105` на каждой карточке, суп из отступов | движение со смыслом; единый spacing scale |
 
 ### Код
 
@@ -73,6 +86,21 @@ Inter и эмодзи, с вёрсткой от контента.
 | непрошеные фичи, фреймворки, абстракции «на будущее» | минимальное корректное изменение |
 | регенерация всего файла | точечные правки соседнего кода не трогаются |
 | собственный стиль вопреки проекту | сначала прочитать окружающий код и повторить его |
+| `handleClick`, `processData`, мусорные `utils`-модули | имена от предметной области |
+| мёртвые импорты, TODO-заглушки «implement later» | в код попадает только работающее |
+| тавтологические тесты, `assert True` после вызова | тест реального поведения или никакого |
+| широкий `except Exception` в одноразовом скрипте | обработка того, что реально падает |
+
+### Разговор
+
+| Запрещено | Вместо |
+|---|---|
+| «Отличный вопрос!», «You're absolutely right!» | сразу ответ |
+| пересказ запроса перед ответом | ответ |
+| «Надеюсь, это помогло!», «In summary…», recap | конец там, где кончился ответ |
+| принудительное «правило трёх», «not X, but Y» | столько пунктов, сколько существует |
+| сиркофания и стопки оговорок | одна честная оговорка там, где важна |
+| bullet-спам и болд на каждой строке | проза для коротких ответов, списки для списков |
 
 ### Словарь
 
@@ -129,10 +157,12 @@ anti-ai-slop/commands/check.md                  — команда /anti-slop:ch
 ## English summary
 
 A ZCode plugin that stops AI models from producing tell-tale "AI slop": purple/neon gradients,
-the Inter font, emoji UI, glassmorphism, uniform card grids, AI vocabulary (*robust*, *seamless*,
-*delve*, *leverage*…), over-commenting and defensive boilerplate. The ruleset is grounded in
-public analyses of AI-detectable patterns (see the Russian section for sources). A SessionStart
-hook injects compact rules into every session; the `anti-ai-slop` skill carries the full
-rulebook; `/anti-slop:check` audits files and fixes findings. Each ban is lifted only when the
-user explicitly asks for that exact pattern. Install: Plugin Marketplace → Add → paste this
+the Inter font, emoji UI, glassmorphism, uniform card grids, Tailwind blue-500/shadcn defaults,
+fake testimonials, AI vocabulary (*robust*, *seamless*, *delve*, *leverage*…), over-commenting
+and defensive boilerplate — plus the behavioral tells: sycophancy openers, restated requests,
+performative endings, forced tricolons and bullet-spam. The ruleset is grounded in public
+analyses of AI-detectable patterns (see the Russian section for sources). A SessionStart hook
+injects compact rules into every session; the `anti-ai-slop` skill carries the full rulebook;
+`/anti-slop:check` audits files and fixes findings. Each ban is lifted only when the user
+explicitly asks for that exact pattern. Install: Plugin Marketplace → Add → paste this
 repository URL.

@@ -4,7 +4,7 @@
     {
       "name": "anti-ai-slop",
       "source": "./anti-ai-slop",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "description": "Keeps AI output free of tell-tale slop (neon gradients, Inter, emoji UI, AI vocabulary, over-commenting) unless explicitly requested.",
       "displayName": "Anti AI Slop",
       "displayName_i18n": { "ru-RU": "Anti AI Slop" },

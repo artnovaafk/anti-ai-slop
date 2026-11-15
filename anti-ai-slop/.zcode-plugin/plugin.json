@@ -1,6 +1,6 @@
 {
   "name": "anti-ai-slop",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Keeps AI output free of tell-tale slop: purple/neon gradients, Inter font, emoji UI, glassmorphism, uniform card grids, AI vocabulary, over-commenting and defensive boilerplate — banned unless the user explicitly asks.",
   "author": { "name": "artno" },
   "skills": "./skills",
